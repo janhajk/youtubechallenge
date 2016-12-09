@@ -45,6 +45,8 @@
    var btable = function(data) {
       var t = document.createElement('table');
       t.className = 'table-striped';
+      t.width = '100%';
+      t.maxWidth = '400px';
       var thead = document.createElement('thead');
       var tr = document.createElement('tr');
       var th;
