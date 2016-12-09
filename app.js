@@ -15,7 +15,6 @@ var connection = mysql.createConnection({
 connection.connect();
 
 
-
 connection.query('SELECT * FROM videos', function(err, rows, fields) {
    if(err) throw err;
    console.log(rows);
@@ -26,24 +25,28 @@ connection.query('SELECT * FROM videos', function(err, rows, fields) {
             part: 'statistics',
             id: rows[i].yid
          }, function(err, stats) {
-            console.log((err ? err.message : callback(null, {id:rows[i].id, stats:stats.items[0].statistics})));
+            console.log((err ? err.message : callback(null, {
+               id: rows[i].id,
+               stats: stats.items[0].statistics
+            })));
          });
       });
    }
    async.parallel(videos, function(err, results) {
       console.log(results);
-      var query = 'BEGIN;';
-      for (let i in results){
-        query += 'INSERT INTO stats (vid, viewCount,timestamp) VALUES ('+results[i].id+', '+results[i].stats.viewCount+', '+Math.floor(Date.now() / 1000)+');';
-      }
-      query += 'COMMIT;';
-      console.log(query);
-      connection.query(query, function(err, rows, fields) {
-         if (err) throw err;
-
-         console.log('New Rows written');
+      var queries = [];
+      for(let i in results) {
+         queries.push(function(callback) {
+            let query = 'INSERT INTO stats (vid, viewCount,timestamp) VALUES (' + results[i].id + ', ' + results[i].stats.viewCount + ', ' + Math.floor(Date.now() / 1000) + ');';
+            connection.query(query, function(err, rows, fields) {
+               if(err) throw err;
+               callback(null);
+            });
+         });
+      };
+      async.parallel(queries, function(err){
          connection.end();
-      });
+      })
    });
 });
 
