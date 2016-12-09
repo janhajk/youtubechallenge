@@ -14,8 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(express.static((path.join(__dirname, 'public'))));
 app.listen(1339, function () {
   console.log('App runnung on port 1339');
-  setInterval(update.update,3600*1000);
-  update.update();
 });
 
 
@@ -31,4 +29,9 @@ app.get('/data', function(req, res){
    data.get(function(output){
       res.send(output);
    });
+});
+
+app.get('/cron', function(req, res){
+   update.update();
+   res.send('cron succesfully ran!');
 });
