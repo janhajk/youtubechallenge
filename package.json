@@ -1,0 +1,13 @@
+{
+    "name": "youtube-challenge",
+    "description": "a youtube views-count tracker",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "4.x",
+        "googleapis": "15.x",
+        "youtube-api": "*"
+    }
+}
