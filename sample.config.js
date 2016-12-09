@@ -10,7 +10,7 @@ exports.videos = [{
       {title: '',id: ''},
       {title: '',id: ''}
    ]},
-   name: 'Tim',
+   {name: 'Tim',
    videos: [
       {title: '',id: ''},
       {title: '',id: ''}
