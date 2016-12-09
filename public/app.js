@@ -40,7 +40,7 @@
    var btable = function(data) {
       var t = document.createElement('table');
       for (var i in data) {
-         btable.appendChild(row(data[i]));
+         t.appendChild(row(data[i]));
       }
       return t;
    };
