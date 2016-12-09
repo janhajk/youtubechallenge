@@ -34,7 +34,7 @@ connection.query('SELECT * FROM videos', function(err, rows, fields) {
       console.log(results);
       var query = 'BEGIN;';
       for (let i in results){
-        query += 'INSERT INTO stats (vid, viewCount,timestamp) VALUES ('+results[i].id+', '+results[i].stats.viewCount+', '+Date.now()+');';
+        query += 'INSERT INTO stats (vid, viewCount,timestamp) VALUES ('+results[i].id+', '+results[i].stats.viewCount+', '+Math.floor(Date.now() / 1000)+');';
       }
       query += 'COMMIT;';
       connection.query(query, function(err, rows, fields) {
