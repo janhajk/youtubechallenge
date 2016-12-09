@@ -3,7 +3,7 @@
       //Filter einblenden
       var body = document.getElementsByTagName("BODY")[0];
       var request = new XMLHttpRequest();
-      request.open('GET', /data, true);
+      request.open('GET', '/data', true);
       request.onload = function() {
          if(request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText);
