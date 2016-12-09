@@ -9,5 +9,5 @@ Youtube.videos.list({
    part: 'statistics',
    id: 'JnS8qePSv90'
 }, function (err, stats){
-   console.log((err ? err.message : stats[0].statistics));
+   console.log((err ? err.message : stats.items[0].statistics));
 });
