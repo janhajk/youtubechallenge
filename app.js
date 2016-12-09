@@ -3,6 +3,7 @@ var update = require(__dirname + '/update.js');
 var compression    = require('compression');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
+var path = require("path")
 
 var app = express();
 
