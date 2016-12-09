@@ -13,7 +13,6 @@ var connection = mysql.createConnection({
 });
 
 exports.update = function(){
-   connection.connect();
    connection.query('SELECT * FROM videos', function(err, rows, fields) {
       if(err) throw err;
       console.log(rows);
