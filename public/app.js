@@ -107,7 +107,7 @@
                   type: 'time',
                   time: {
                      displayFormats: {
-                        hour: 'MMM D, hA'
+                        hour: 'DD.MMM, kk:mm'
                      }
                   }
                }]
