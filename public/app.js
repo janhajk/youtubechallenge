@@ -68,7 +68,7 @@
       };
       cols.Name = ftd(data.name);
       cols.Titel = ftd(data.title);
-      cols.Betrag = ftd(data.views, 'right');
+      cols.Views = ftd(data.views, 'right');
       for (var i in cols) {
          tr.appendChild(cols[i]);
       }
