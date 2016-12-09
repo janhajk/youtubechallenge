@@ -26,15 +26,24 @@ connection.query('SELECT * FROM videos', function(err, rows, fields) {
             part: 'statistics',
             id: rows[i].yid
          }, function(err, stats) {
-            console.log((err ? err.message : callback(null, {id:rows[i].yid, stats:stats.items[0].statistics})));
+            console.log((err ? err.message : callback(null, {id:rows[i].id, stats:stats.items[0].statistics})));
          });
       });
    }
    async.parallel(videos, function(err, results) {
       console.log(results);
-   })
-});
+      var query = 'BEGIN;';
+      for (let i in results){
+        query += 'INSERT INTO stats (vid, viewCount,timestamp) VALUES ('+results[i].id+', '+results[i].stats.viewCount+', '+Date.now()+');';
+      }
+      query += 'COMMIT;';
+      connection.query(query, function(err, rows, fields) {
+         if (err) throw err;
 
-connection.end();
+         console.log('New Rows written');
+         connection.end();
+      });
+   });
+});
 
 
