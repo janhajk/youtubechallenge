@@ -8,6 +8,6 @@ app.get('/', function (req, res) {
 app.listen(1339, function () {
   console.log('App runnung on port 1339');
   setInterval(function(){
-     require(__dirname + '/config.js');
+     require(__dirname + '/update.js');
   },1000);
 });
