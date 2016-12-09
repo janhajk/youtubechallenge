@@ -37,6 +37,7 @@ connection.query('SELECT * FROM videos', function(err, rows, fields) {
         query += 'INSERT INTO stats (vid, viewCount,timestamp) VALUES ('+results[i].id+', '+results[i].stats.viewCount+', '+Math.floor(Date.now() / 1000)+');';
       }
       query += 'COMMIT;';
+      console.log(query);
       connection.query(query, function(err, rows, fields) {
          if (err) throw err;
 
