@@ -87,8 +87,11 @@
          td.style.textAlign = align;
          return td;
       };
+      var a = document.createElement('a');
+      a.href = 'https://www.youtube.com/watch?v=' + data.id;
+      a.text = data.title;
       cols.Name = ftd(data.name);
-      cols.Titel = ftd(data.title);
+      cols.Titel = ftd(a.innerHTML);
       cols.Views = ftd(data.views);
       for (var i in cols) {
          tr.appendChild(cols[i]);
