@@ -12,11 +12,10 @@ var connection = mysql.createConnection({
   database: 'youtube'
 });
 
-connection.connect();
-
 exports.update = function(){
+   connection.connect();
    connection.query('SELECT * FROM videos', function(err, rows, fields) {
-      if(err) {throw err;}
+      if(err) throw err;
       console.log(rows);
       var videos = [];
       for (let i in rows) {
@@ -46,9 +45,9 @@ exports.update = function(){
          }
          async.parallel(queries, function(err){
             console.log('everything updated!');
+            connection.end();
          });
       });
    });
 };
-connection.end();
 
