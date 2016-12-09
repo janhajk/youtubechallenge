@@ -44,7 +44,7 @@
 
    var btable = function(data) {
       var t = document.createElement('table');
-      t.className = 'table';
+      t.className = 'table-striped table-bordered';
       data = sortProperties(data, 'views', true, true);
       for (var i in data) {
          t.appendChild(row(data[i][1]));
