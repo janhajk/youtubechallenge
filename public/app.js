@@ -100,12 +100,22 @@
    };
 
    var makeChart = function(ctx, videos) {
+      var colors = [
+         ["rgba(252,92,53,1)","rgba(252,92,53,0.4)"],
+         ["rgba(177,244,90,1)","rgba(177,244,90,0.4)"],
+         ["rgba(90,244,226,1)","rgba(90,244,226,0.4)"],
+         ["rgba(90,98,244,1)","rgba(90,98,244,0.4)"],
+         ["rgba(239,90,244,1)","rgba(239,90,244,0.4)"],
+         ["rgba(75,192,192,1)","rgba(75,192,192,0.4)"]
+      ];
       var datasets = [];
       var dataset = {};
       var data = [];
       for (var i in videos) {
          dataset = {};
          dataset.label = videos[i].title;
+         dataset.borderColor = colors[i][0];
+         dataset.backgroundColor = colors[i][1];
          data = [];
          for (var s in videos[i].stats) {
             data.push({x:new Date(videos[i].stats[s].timestamp*1000), y:videos[i].stats[s].viewCount});
