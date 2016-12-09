@@ -1,4 +1,5 @@
-var express = require('express')
+var express = require('express');
+var update = require(__dirname + '/update.js');
 var app = express();
 
 app.get('/', function (req, res) {
@@ -7,7 +8,5 @@ app.get('/', function (req, res) {
 
 app.listen(1339, function () {
   console.log('App runnung on port 1339');
-  setInterval(function(){
-     require(__dirname + '/update.js');
-  },1000);
+  setInterval(update.update(),1000);
 });
