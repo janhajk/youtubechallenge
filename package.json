@@ -8,6 +8,7 @@
     "dependencies": {
         "express": "4.x",
         "googleapis": "15.x",
-        "youtube-api": "*"
+        "youtube-api": "*",
+        "mysql": "2.12.x"
     }
 }
