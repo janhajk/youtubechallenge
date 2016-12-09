@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.use(express.static((path.join(__dirname, 'public'))));
 app.listen(1339, function () {
   console.log('App runnung on port 1339');
-  setInterval(function(){update.update()},5000);
+  setInterval(function(){update.update()},3600*1000);
 });
 
 
