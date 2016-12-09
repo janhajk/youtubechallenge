@@ -10,6 +10,7 @@
         "express": "4.x",
         "googleapis": "15.x",
         "youtube-api": "*",
-        "mysql": "2.12.x"
+        "mysql": "2.12.x",
+        "async": "2.1.4"
     }
 }
