@@ -22,7 +22,7 @@
             for (i in data.stats) {
                videos[data.stats[i].vid].stats[data.stats[i].timestamp] = data.stats[i];
                if (typeof current[data.stats[i].vid] === 'undefined' || current[data.stats[i].vid].views < data.stats[i].viewCount) {
-                  current[data.stats[i].vid] = {title:videos[data.stats[i].vid].title, name:videos[data.stats[i]].author, views:data.stats[i].viewCount};
+                  current[data.stats[i].vid] = {title:videos[data.stats[i].vid].title, name:videos[data.stats[i].vid].author, views:data.stats[i].viewCount};
                }
             }
             console.log(videos);
