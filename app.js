@@ -2,9 +2,12 @@ var express = require('express')
 var app = express();
 
 app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+  res.send('Hello World!');
+});
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+app.listen(1339, function () {
+  console.log('App runnung on port 1339');
+  setIntervall(function(){
+     require(__dirname + '/config.js');
+  },1000);
+});
