@@ -26,7 +26,7 @@ connection.query('SELECT * FROM videos', function(err, rows, fields) {
             part: 'statistics',
             id: rows[i].yid
          }, function(err, stats) {
-            console.log((err ? err.message : callback(null, {id:rows[i].yid, stats:stats.items[0].statistics)};));
+            console.log((err ? err.message : callback(null, {id:rows[i].yid, stats:stats.items[0].statistics})));
          });
       });
    }
