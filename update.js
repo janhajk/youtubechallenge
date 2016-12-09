@@ -45,7 +45,6 @@ exports.update = function(){
          }
          async.parallel(queries, function(err){
             console.log('everything updated!');
-            connection.end();
          });
       });
    });
