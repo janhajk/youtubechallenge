@@ -32,6 +32,7 @@ app.get('/data', function(req, res){
 });
 
 app.get('/cron', function(req, res){
-   update.update();
-   res.send('cron succesfully ran!');
+   update.update(function(message){
+      res.send(message);
+   });
 });

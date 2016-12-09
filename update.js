@@ -3,16 +3,16 @@ var Youtube = google.youtube('v3');
 var mysql = require('mysql');
 var config = require(__dirname + '/config.js');
 var async = require('async');
-google.options({ auth: config.api_key });
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: config.sql.user,
-  password: config.sql.password,
-  database: 'youtube'
-});
 
-exports.update = function(){
+var update = function(cb){
+   google.options({ auth: config.api_key });
+   var connection = mysql.createConnection({
+      host: 'localhost',
+      user: config.sql.user,
+      password: config.sql.password,
+      database: 'youtube'
+   });
    connection.query('SELECT * FROM videos', function(err, rows, fields) {
       if(err) throw err;
       //console.log(rows);
@@ -43,9 +43,10 @@ exports.update = function(){
             });
          }
          async.parallel(queries, function(err){
+            cb('everything updated!');
             console.log('everything updated!');
          });
       });
    });
 };
-
+exports.update = update;
