@@ -1,6 +1,8 @@
 var google = require('googleapis');
-var Youtube = Google.youtube("v3");
- 
+var Youtube = google.youtube('v3');
+
+
+
 var API_KEY = 'AIzaSyAQ2Hs4P-sMGzeH82QMrZYnVBGQfZl62Rw'; // specify your API key here
 google.options({ auth: API_KEY });
 Youtube.videos.list({
