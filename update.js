@@ -16,10 +16,10 @@ connection.connect();
 
 
 connection.query('SELECT * FROM videos', function(err, rows, fields) {
-   if(err) throw err;
+   if(err) {throw err;}
    console.log(rows);
    var videos = [];
-   for(let i in rows) {
+   for (let i in rows) {
       videos.push(function(callback) {
          Youtube.videos.list({
             part: 'statistics',
@@ -43,10 +43,10 @@ connection.query('SELECT * FROM videos', function(err, rows, fields) {
                callback(null);
             });
          });
-      };
+      }
       async.parallel(queries, function(err){
          connection.end();
-      })
+      });
    });
 });
 

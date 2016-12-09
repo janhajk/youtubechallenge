@@ -1,10 +1,10 @@
-/**
-* Created with youtubechallenge.
-* User: janhajk
-* Date: 2016-12-09
-* Time: 08:52 AM
-* To change this template use Tools | Templates.
-*/
-define(function() {
-return {};
-});
+var express = require('express')
+var app = express();
+
+app.get('/', function (req, res) {
+  res.send('Hello World!')
+})
+
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
