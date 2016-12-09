@@ -30,8 +30,8 @@
             var chart = document.createElement('canvas');
             chart.width = '100%';
             chart.height = '200';
-            body.appendChild(chart, videos);
-            makeChart(chart);
+            body.appendChild(chart);
+            makeChart(chart,videos);
          } else {
             // Error
          }
