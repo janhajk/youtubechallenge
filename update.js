@@ -45,10 +45,10 @@ exports.update = function(){
             });
          }
          async.parallel(queries, function(err){
-            connection.end();
+            console.log('everything updated!');
          });
       });
    });
 };
-
+connection.end();
 
