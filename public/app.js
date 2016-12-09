@@ -91,7 +91,7 @@
          dataset.label = videos[i].title;
          data = [];
          for (var s in videos[i].stats) {
-            data.push({x:new Date(unix_timestampvideos[i].stats[s].timestamp*1000), y:videos[i].stats[s].viewCount});
+            data.push({x:new Date(videos[i].stats[s].timestamp*1000), y:videos[i].stats[s].viewCount});
          }
          dataset.data = data;
          datasets.push(dataset);
