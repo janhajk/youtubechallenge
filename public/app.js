@@ -106,7 +106,7 @@
             y = b[1][sortedBy].toLowerCase();
          return x < y ? reversed * -1 : x > y ? reversed : 0;
       });
-      return sort
+      return sortable;
    }
 
 })();
