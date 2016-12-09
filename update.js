@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
 exports.update = function(){
    connection.query('SELECT * FROM videos', function(err, rows, fields) {
       if(err) throw err;
-      console.log(rows);
+      //console.log(rows);
       var videos = [];
       for (let i in rows) {
          videos.push(function(callback) {
@@ -23,15 +23,15 @@ exports.update = function(){
                part: 'statistics',
                id: rows[i].yid
             }, function(err, stats) {
-               console.log((err ? err.message : callback(null, {
+               /*console.log((err ? err.message : callback(null, {
                   id: rows[i].id,
                   stats: stats.items[0].statistics
-               })));
+               })));*/
             });
          });
       }
       async.parallel(videos, function(err, results) {
-         console.log(results);
+         //console.log(results);
          var queries = [];
          for(let i in results) {
             queries.push(function(callback) {
@@ -43,7 +43,7 @@ exports.update = function(){
             });
          }
          async.parallel(queries, function(err){
-            console.log('everything updated!');
+            //console.log('everything updated!');
          });
       });
    });

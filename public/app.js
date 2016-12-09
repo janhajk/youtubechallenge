@@ -25,7 +25,7 @@
                   current[data.stats[i].vid] = {title:videos[data.stats[i].vid].title, name:videos[data.stats[i].vid].author, views:data.stats[i].viewCount};
                }
             }
-            console.log(videos);
+            //console.log(videos);
             body.appendChild(btable(current));
          } else {
             // Error
