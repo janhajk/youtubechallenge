@@ -31,7 +31,7 @@
             chart.width = '100%';
             chart.height = '200';
             body.appendChild(chart);
-            makeChartr(chart);
+            makeChart(chart);
          } else {
             // Error
          }
