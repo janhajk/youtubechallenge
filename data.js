@@ -9,10 +9,14 @@ var connection = mysql.createConnection({
 });
 
 exports.get = function(callback){
-   connection.query('SELECT * FROM stats', function(err, rows, fields) {
+   connection.query('SELECT * FROM stats', function(err, rows1) {
       if(err) throw err;
-      console.log(rows);
-      callback(rows);
+      console.log(rows1);
+      connection.query('SELECT * FROM videos', function(err,rows2){
+         if(err) throw err;
+         console.log(rows2);
+         callback({stats:rows1, videos:rows2});
+      });
    });
 };
 
