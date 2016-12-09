@@ -8,5 +8,5 @@ app.get('/', function (req, res) {
 
 app.listen(1339, function () {
   console.log('App runnung on port 1339');
-  setInterval(function(){update.update()},10000);
+  setInterval(function(){update.update()},5000);
 });
