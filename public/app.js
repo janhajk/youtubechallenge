@@ -7,11 +7,11 @@
       request.onload = function() {
          if(request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText);
-            var videos = [];
+            var videos = {};
             var i;
             for(i in data.videos) {
                data.videos[i].stats = {};
-               videos.push(data.videos[i]);
+               videos[data.videos[i].vid] = (data.videos[i]);
             }
             for (i in data.stats) {
                videos[data.stats[i].vid].stats[data.stats[i].timestamp] = data.stats[i];
