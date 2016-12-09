@@ -43,7 +43,7 @@ exports.update = function(){
             });
          }
          async.parallel(queries, function(err){
-            //console.log('everything updated!');
+            console.log('everything updated!');
          });
       });
    });
