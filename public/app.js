@@ -39,6 +39,7 @@
 
    var btable = function(data) {
       var t = document.createElement('table');
+      t.className = 'table';
       for (var i in data) {
          t.appendChild(row(data[i]));
       }
