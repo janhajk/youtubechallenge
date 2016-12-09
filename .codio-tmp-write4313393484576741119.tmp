@@ -12,6 +12,6 @@
         "youtube-api": "*",
         "mysql": "2.12.x",
         "async": "2.1.4",
-        "compression": ""
+        "compression": "1.x.x"
     }
 }
