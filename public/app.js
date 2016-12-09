@@ -11,7 +11,7 @@
             var i;
             for(i in data.videos) {
                data.videos[i].stats = {};
-               videos[data.videos[i].vid] = (data.videos[i]);
+               videos[data.videos[i].id] = (data.videos[i]);
             }
             for (i in data.stats) {
                videos[data.stats[i].vid].stats[data.stats[i].timestamp] = data.stats[i];
