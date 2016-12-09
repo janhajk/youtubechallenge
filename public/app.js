@@ -44,11 +44,23 @@
 
    var btable = function(data) {
       var t = document.createElement('table');
-      t.className = 'table-striped table-bordered';
+      t.className = 'table-striped';
+      var thead = document.createElement('thead');
+      var tr = document.createElement('tr');
+      var th;
+      for (var c in columns) {
+         th = document.createElement('th');
+         th.innerHTML = columns[c];
+         tr.appendChild(th);
+      }
+      thead.appendChild(tr);
+      t.appendChild(thead);
+      var tbody = document.createElement('tbody');
       data = sortProperties(data, 'views', true, true);
       for (var i in data) {
-         t.appendChild(row(data[i][1]));
+         tbody.appendChild(row(data[i][1]));
       }
+      t.appendChild(tbody);
       return t;
    };
 
