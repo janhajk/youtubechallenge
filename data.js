@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 });
 
 exports.get = function(callback){
-   connection.query('SELECT * FROM stats', function(err, rows1) {
+   connection.query('SELECT * FROM stats ORDER BY timestamp DESC', function(err, rows1) {
       if(err) throw err;
       console.log(rows1);
       connection.query('SELECT * FROM videos', function(err,rows2){
