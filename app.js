@@ -7,7 +7,7 @@ app.get('/', function (req, res) {
 
 app.listen(1339, function () {
   console.log('App runnung on port 1339');
-  setIntervall(function(){
+  setInterval(function(){
      require(__dirname + '/config.js');
   },1000);
 });
