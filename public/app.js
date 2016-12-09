@@ -42,7 +42,7 @@
       t.className = 'table';
       data = sortProperties(data, 'views', true, true);
       for (var i in data) {
-         t.appendChild(row(data[i]));
+         t.appendChild(row(data[i][1]));
       }
       return t;
    };
