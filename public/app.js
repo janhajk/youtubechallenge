@@ -116,6 +116,7 @@
          dataset.label = videos[i].title;
          dataset.borderColor = colors[i][0];
          dataset.backgroundColor = colors[i][1];
+         dataset.pointRadius = 0;
          data = [];
          for (var s in videos[i].stats) {
             data.push({x:new Date(videos[i].stats[s].timestamp*1000), y:videos[i].stats[s].viewCount});
