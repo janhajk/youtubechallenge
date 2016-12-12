@@ -4,6 +4,7 @@ var compression    = require('compression');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var path = require("path");
+var config = require(__dirname + '/config.js');
 
 var mysql = require('mysql');
 
