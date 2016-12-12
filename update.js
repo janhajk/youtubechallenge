@@ -1,19 +1,12 @@
 var google = require('googleapis');
 var Youtube = google.youtube('v3');
-var mysql = require('mysql');
 var config = require(__dirname + '/config.js');
 var async = require('async');
 
 
-var update = function(cb){
+var update = function(mysqlconnection, cb){
    google.options({ auth: config.api_key });
-   var connection = mysql.createConnection({
-      host: 'localhost',
-      user: config.sql.user,
-      password: config.sql.password,
-      database: 'youtube'
-   });
-   connection.query('SELECT * FROM videos', function(err, rows, fields) {
+   mysqlconnection.query('SELECT * FROM videos', function(err, rows, fields) {
       if(err) throw err;
       console.log(rows);
       var videos = [];
@@ -36,7 +29,7 @@ var update = function(cb){
          for(let i in results) {
             queries.push(function(callback) {
                let query = 'INSERT INTO stats (vid, viewCount,timestamp) VALUES (' + results[i].id + ', ' + results[i].stats.viewCount + ', ' + Math.floor(Date.now() / 1000) + ');';
-               connection.query(query, function(err, rows, fields) {
+               mysqlconnection.query(query, function(err, rows, fields) {
                   if(err) throw err;
                   callback(null);
                });

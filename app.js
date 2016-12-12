@@ -3,7 +3,16 @@ var update = require(__dirname + '/update.js');
 var compression    = require('compression');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var path = require("path")
+var path = require("path");
+
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+  host: 'localhost',
+  user: config.sql.user,
+  password: config.sql.password,
+  database: 'youtube'
+});
 
 var app = express();
 
@@ -26,13 +35,15 @@ app.get('/', function(req, res){
 
 app.get('/data', function(req, res){
    var data = require(__dirname + '/data.js');
-   data.get(function(output){
+   data.get(connection, function(output){
       res.send(output);
    });
 });
 
 app.get('/cron', function(req, res){
-   update.update(function(message){
+   update.update(connection, function(message){
       res.send(message);
    });
 });
+
+

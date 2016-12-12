@@ -7,6 +7,7 @@
    document.addEventListener('DOMContentLoaded', function() {
       //Filter einblenden
       var body = document.getElementsByTagName("BODY")[0];
+      body.style.maxWidth = '600px';
       var request = new XMLHttpRequest();
       request.open('GET', '/data', true);
       request.onload = function() {

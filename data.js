@@ -1,25 +1,17 @@
-var mysql = require('mysql');
 var config = require(__dirname + '/config.js');
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: config.sql.user,
-  password: config.sql.password,
-  database: 'youtube'
-});
-
-exports.get = function(callback){
-   connection.query('SELECT * FROM stats ORDER BY timestamp DESC', function(err, rows1) {
+exports.get = function(mysqlconnection, callback){
+   mysqlconnection.query('SELECT * FROM stats ORDER BY timestamp DESC', function(err, rowsStats) {
       if(err) throw err;
-      console.log(rows1);
-      connection.query('SELECT * FROM videos', function(err,rows2){
+      console.log(rowsStats);
+      mysqlconnection.query('SELECT * FROM videos', function(err,rowsVideos){
          if(err) throw err;
          var videos = {};
-         for (let i in rows2) {
-            videos[rows2[i].id] = rows2[i];
+         for (let i in rowsVideos) {
+            videos[rowsVideos[i].id] = rowsVideos[i];
          }
-         console.log(rows2);
-         callback({stats:rows1, videos:videos});
+         console.log(rowsVideos);
+         callback({stats:rowsStats, videos:videos});
       });
    });
 };
