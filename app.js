@@ -58,13 +58,13 @@ app.get('/new', function(req, res) {
 
 app.get('/:fightId', function(req, res){
    var fid = req.params.fightId;
-   res.render('fight', { title: fid });
+   res.render('fight', { title: fid, fightId:fid, adminId:null });
 });
 
 app.get('/:fightId/:adminId', function(req, res){
    var fid = req.params.fightId;
    var aid = req.params.adminId;
-   res.send(fid + aid);
+   res.render('fight', { title: fid, fightId:fid, adminId:aid });
 });
 
 
