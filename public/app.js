@@ -10,6 +10,7 @@
       body.style.maxWidth = '600px';
       body.style.padding = '10px';
       var request = new XMLHttpRequest();
+      body.appendChild(eTitle(fightTitle));
       request.open('GET', '/data/' + fightid, true);
       request.onload = function() {
          if(request.status >= 200 && request.status < 400) {
@@ -44,6 +45,11 @@
       request.send();
    });
 
+   var eTitle = functions(title) {
+      let d = document.createElement('div');
+      d.innerHTML = 'title';
+      return d;
+   };
    var btable = function(data) {
       var t = document.createElement('table');
       t.className = 'table-striped';
