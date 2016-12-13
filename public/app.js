@@ -31,7 +31,7 @@
             //console.log(videos);
             body.appendChild(btable(current));
             let d = document.createElement('div');
-            var chart = document.createElement('canvas');
+            let chart = document.createElement('canvas');
             d.style.width = '100% !important';
             d.style.height = '500px !important';
             d.appendChild(chart)
@@ -125,7 +125,7 @@
          dataset.backgroundColor = c[1];
          dataset.pointRadius = 0;
          dataset.responsive = true;
-         dataset.maintainAspectRatio = false;
+         dataset.maintainAspectRatio = true;
          data = [];
          for (var s in videos[i].stats) {
             data.push({x:new Date(videos[i].stats[s].timestamp*1000), y:videos[i].stats[s].viewCount});
