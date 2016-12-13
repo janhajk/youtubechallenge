@@ -45,11 +45,13 @@
       request.send();
    });
 
-   var eTitle = functions(title) {
+   var eTitle = function(title) {
       let d = document.createElement('div');
       d.innerHTML = 'title';
       return d;
    };
+
+
    var btable = function(data) {
       var t = document.createElement('table');
       t.className = 'table-striped';
