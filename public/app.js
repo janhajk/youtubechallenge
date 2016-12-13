@@ -7,7 +7,7 @@
    document.addEventListener('DOMContentLoaded', function() {
       //Filter einblenden
       var body = document.getElementsByTagName("BODY")[0];
-      body.style.maxWidth = '600px';
+      //body.style.maxWidth = '600px';
       body.style.padding = '10px';
       var request = new XMLHttpRequest();
       body.appendChild(eTitle(fightTitle));
