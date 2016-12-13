@@ -8,7 +8,7 @@
       //Filter einblenden
       var body = document.getElementsByTagName("BODY")[0];
       //body.style.maxWidth = '600px';
-      //body.style.padding = '10px';
+      body.style.padding = '10px';
       var request = new XMLHttpRequest();
       body.appendChild(eTitle(fightTitle));
       request.open('GET', '/data/' + fightid, true);
@@ -31,9 +31,9 @@
             //console.log(videos);
             body.appendChild(btable(current));
             let d = document.createElement('div');
+            d.id = 'wrapper_chart';
             let chart = document.createElement('canvas');
-            d.style.width = '100% !important';
-            d.style.height = '500px !important';
+            chart.id = 'chartcanvas';
             d.appendChild(chart)
             body.appendChild(d);
             makeChart(chart,videos);
