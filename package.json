@@ -16,6 +16,6 @@
         "body-parser": "1.x.x",
         "method-override": "2.3.x",
         "shortid": "2.x.x",
-        "pug": "2.x.x"
+        "pug": "2.0.0-beta6"
     }
 }
