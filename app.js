@@ -25,7 +25,7 @@ app.use(express.static((path.join(__dirname, 'public'))));
 app.listen(config.port, function () {
   console.log('App running on port ' + config.port);
 });
-app.engine('html', require('express-views-dom')(app));
+app.set('view engine', 'pug')
 
 
 app.get('/', function(req, res){
@@ -58,14 +58,7 @@ app.get('/new', function(req, res) {
 
 app.get('/:fightId', function(req, res){
    var fid = req.params.fightId;
-   res.render('fight', {
-      render: function (window, done) {
-         var doc = window.document;
-         doc.title = "Fight" + fid;
-         doc.body.innerHTML = '<div style="display:block" id="data">'+fid+'</div>';
-         done();
-      }
-   });
+   res.render('fight', { title: fid });
 });
 
 app.get('/:fightId/:adminId', function(req, res){

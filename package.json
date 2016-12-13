@@ -16,6 +16,6 @@
         "body-parser": "1.x.x",
         "method-override": "2.3.x",
         "shortid": "2.x.x",
-        "express-views-dom": "0.1.x"
+        "pug": "2.x.x"
     }
 }
