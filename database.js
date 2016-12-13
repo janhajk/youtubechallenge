@@ -22,6 +22,7 @@ var updateStats = function(stats, connection, callback) {
       insert.push('('+stats[i].statistics.id+','+stats[i].statistics.ViewCount+','+Math.floor(Date.now() / 1000)+')');
    }
    var query = 'INSERT INTO stats (yid, viewCount, timestamp) VALUES ' + insert.join(',');
+   if (config.dev) console.log(query);
    connection.query(query, function(err) {
       if(err) {
          callback(err);
