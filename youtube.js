@@ -23,7 +23,7 @@ stats.items looks like this:
 var getStats = function(vids, callback) {
    Youtube.videos.list({
       part: 'statistics',
-      id: vids // does array work here?
+      id: vids.join(',')
    }, function(err, stats) {
       if (err) {
          if (config.dev) console.log(err);
