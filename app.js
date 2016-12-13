@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
   host: 'localhost',
   user: config.sql.user,
   password: config.sql.password,
-  database: config.database
+  database: config.sql.database
 });
 
 var app = express();
