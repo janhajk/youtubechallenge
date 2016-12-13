@@ -121,6 +121,7 @@
          dataset.borderColor = c[0];
          dataset.backgroundColor = c[1];
          dataset.pointRadius = 0;
+         dataset.responsive = true;
          data = [];
          for (var s in videos[i].stats) {
             data.push({x:new Date(videos[i].stats[s].timestamp*1000), y:videos[i].stats[s].viewCount});
@@ -188,7 +189,7 @@
       for (let i in h) {
          h[i] = Math.round(parseInt(h[i],10)/100*256);
       }
-      return ['rgba('+h.join(',')+',1)','rgba('+h.join(',')+',0.4)']
+      return ['rgba('+h.join(',')+',1)','rgba('+h.join(',')+',0.2)']
    };
 
    var hash = function(string) {

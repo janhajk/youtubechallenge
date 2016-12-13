@@ -1,6 +1,6 @@
 // Branches: https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
 // Merge Master http://stackoverflow.com/questions/5601931/best-and-safest-way-to-merge-a-git-branch-into-master#5602109
-
+// Color Charts: http://rapidtables.com/web/color/RGB_Color.htm
 
 var express = require('express');
 var update = require(__dirname + '/update.js');
