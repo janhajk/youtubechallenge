@@ -30,11 +30,13 @@
             }
             //console.log(videos);
             body.appendChild(btable(current));
-            var chart = document.createElement('canvas');
-            chart.width = '100%';
-            //chart.height = '200';
-            chart.style.height= 'auto !important';
-            body.appendChild(chart);
+            let d = document.createElement('div');
+            let chart = document.createElement('canvas');
+            d.width = '100%';
+            d.position = 'relative';
+            d.style.height= '50vh';
+            d.appendChild(chart)
+            body.appendChild(d);
             makeChart(chart,videos);
          } else {
             // Error
@@ -123,6 +125,7 @@
          dataset.backgroundColor = c[1];
          dataset.pointRadius = 0;
          dataset.responsive = true;
+         dataset.maintainAspectRatio = false;
          data = [];
          for (var s in videos[i].stats) {
             data.push({x:new Date(videos[i].stats[s].timestamp*1000), y:videos[i].stats[s].viewCount});
