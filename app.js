@@ -22,8 +22,8 @@ app.use(methodOverride());  // simulate DELETE and PUT
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(express.static((path.join(__dirname, 'public'))));
-app.listen(1339, function () {
-  console.log('App runnung on port 1339');
+app.listen(config.port, function () {
+  console.log('App runnung on port ' + config.port);
 });
 
 
