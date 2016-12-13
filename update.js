@@ -1,7 +1,6 @@
 var google = require('googleapis');
 var Youtube = google.youtube('v3');
 var config = require(__dirname + '/config.js');
-var async = require('async');
 
 
 var update = function(connection, callback) {
