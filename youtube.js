@@ -30,6 +30,7 @@ var getStats = function(vids, callback) {
          callback(err);
       }
       else {
+         if (config.dev) console.log(stats);
          callback(null, stats.items);
       }
    });

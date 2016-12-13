@@ -54,7 +54,7 @@ var update2 = function(connection, callback) {
          callback(err);
       }
       else {
-         let vids;
+         let vids = [];
          for (let i in rows) {
             vids.push(rows[i].yid);
          }
