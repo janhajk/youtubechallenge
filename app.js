@@ -70,7 +70,7 @@ app.get('/:fightId', function(req, res){
          res.send(err.message);
       }
       else {
-         res.render('fight', { title: fid, fightId:fid, adminId:null, fightTitle: data[0].fightTitle });
+         res.render('fight', { title: fid, fightId:fid, adminId:null, fightTitle: data[0].title });
       }
    });
 });
