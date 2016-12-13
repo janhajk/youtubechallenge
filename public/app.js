@@ -47,7 +47,8 @@
 
    var eTitle = function(title) {
       let d = document.createElement('div');
-      d.innerHTML = 'title';
+      d.style.fontSize = '16pt';
+      d.innerHTML = title;
       return d;
    };
 
