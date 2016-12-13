@@ -41,7 +41,7 @@ app.get('/', function(req, res){
 app.get('/data/:fightId', function(req, res){
    var fid = req.params.fightId;
    var data = require(__dirname + '/data.js');
-   data.get(connection, function(err, output){
+   data.get(fid, connection, function(err, output){
       if (err) {
          res.send(err.message);
       }
