@@ -32,12 +32,11 @@
             body.appendChild(btable(current));
             let d = document.createElement('div');
             var chart = document.createElement('canvas');
-            d.style.width = '100% important!';
-            d.style.height = '300px';
-            d.position = 'relative';
+            chart.style.width = '100% important!';
+            chart.style.height = '300px';
             //d.style.height= '50vh';
             d.appendChild(chart)
-            body.appendChild(d);
+            body.appendChild(chart);
             makeChart(chart,videos);
 
             function resizeChart() {
