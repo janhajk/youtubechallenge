@@ -33,7 +33,7 @@
             let d = document.createElement('div');
             var chart = document.createElement('canvas');
             chart.style.width = '100% important!';
-            chart.style.height = '300px';
+            chart.style.height = '500px';
             //d.style.height= '50vh';
             d.appendChild(chart)
             body.appendChild(chart);
@@ -42,14 +42,14 @@
             function resizeChart() {
                var canvas = chart;
 
-               //set new sizes                 
+               //set new sizes
                var new_canvasWidth = Math.max((canvas.parentNode.clientWidth), 800);
-               var new_canvasHeight = 300;
+               var new_canvasHeight = 500;
 
                //only redraw if the size  has changed
-               if ((new_canvasWidth != canvas.width) || (new_canvasHeight != canvas.height)) {
-                  canvas.width = new_canvasWidth;
-                  canvas.height = new_canvasHeight;
+               if ((new_canvasWidth != canvas.style.width) || (new_canvasHeight != canvas.style.height)) {
+                  canvas.style.width = new_canvasWidth + 'px';
+                  canvas.style.height = new_canvasHeight + 'px';
                   makeChart(chart,videos);
                }
             }
