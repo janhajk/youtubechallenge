@@ -48,7 +48,7 @@ exports.update = update;
 var update2 = function(connection, callback) {
    var database = require(__dirname + '/database.js');
    var youtube = require(__dirname + '/youtube.js');
-   database.getVideos(connection, function(err, rows){
+   database.getVideos('all', connection, function(err, rows){
       if (err) {
          if (config.dev) console.log(err);
          callback(err);
