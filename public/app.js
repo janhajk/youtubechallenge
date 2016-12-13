@@ -7,7 +7,7 @@
    document.addEventListener('DOMContentLoaded', function() {
       //Filter einblenden
       var body = document.getElementsByTagName("BODY")[0];
-      //body.style.maxWidth = '600px';
+      body.style.maxWidth = '600px';
       body.style.padding = '10px';
       var request = new XMLHttpRequest();
       body.appendChild(eTitle(fightTitle));
@@ -30,12 +30,16 @@
             }
             //console.log(videos);
             body.appendChild(btable(current));
-            let d = document.createElement('div');
-            d.id = 'wrapper_chart';
-            let chart = document.createElement('canvas');
+            var chart = document.createElement('canvas');
+            chart.width = '100%';
+            chart.height = '200';
+            body.appendChild(chart);
+            //let d = document.createElement('div');
+            //d.id = 'wrapper_chart';
+            //let chart = document.createElement('canvas');
             chart.id = 'chartcanvas';
-            d.appendChild(chart)
-            body.appendChild(d);
+            //d.appendChild(chart)
+            body.appendChild(chart);
             makeChart(chart,videos);
          } else {
             // Error
