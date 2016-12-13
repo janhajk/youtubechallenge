@@ -17,7 +17,7 @@ exports.getVideos = getVideos;
 
 
 var updateStats = function(stats, connection, callback) {
-   if (config.dev) console.log(stats[i]);
+   if (config.dev) console.log(stats);
    var insert = [];
    for (let i in stats) {
       insert.push('('+stats[i].statistics.id+','+stats[i].statistics.ViewCount+','+Math.floor(Date.now() / 1000)+')');
