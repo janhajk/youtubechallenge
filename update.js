@@ -66,3 +66,4 @@ var update2 = function(connection, callback) {
       }
    });
 };
+exports.update2 = update2;
