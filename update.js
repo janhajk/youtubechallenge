@@ -59,7 +59,7 @@ var update2 = function(connection, callback) {
             vids.push(rows[i].yid);
          }
          youtube.getStats(vids, function(err, stats) {
-            updateStats(stats, connection, function(err){
+            database.updateStats(stats, connection, function(err){
                callback(err, 'Stats updated!');
             });
          });
