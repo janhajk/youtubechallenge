@@ -18,13 +18,13 @@
             var i;
             for(i in data.videos) {
                data.videos[i].stats = {};
-               videos[data.videos[i].id] = (data.videos[i]);
+               videos[i] = (data.videos[i]);
             }
             var current = {};
             for (i in data.stats) {
-               videos[data.stats[i].vid].stats[data.stats[i].timestamp] = data.stats[i];
-               if (typeof current[data.stats[i].vid] === 'undefined' || current[data.stats[i].vid].views < data.stats[i].viewCount) {
-                  current[data.stats[i].vid] = {id:videos[data.stats[i].vid].yid,title:videos[data.stats[i].vid].title, name:videos[data.stats[i].vid].author, views:data.stats[i].viewCount};
+               videos[data.stats[i].yid].stats[data.stats[i].timestamp] = data.stats[i];
+               if (typeof current[data.stats[i].yid] === 'undefined' || current[data.stats[i].yid].views < data.stats[i].viewCount) {
+                  current[data.stats[i].yid] = {id:data.stats[i].yid,title:videos[data.stats[i].yid].title, name:videos[data.stats[i].yid].author, views:data.stats[i].viewCount};
                }
             }
             //console.log(videos);
