@@ -1,7 +1,8 @@
 exports.api_key = '';
 exports.sql = {
    user: '',
-   password: ''
+   password: '',
+   database: 'youtube'
 };
 exports.port = 1340;
 
