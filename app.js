@@ -33,6 +33,11 @@ app.get('/', function(req, res){
    });
 });
 
+app.get('/:fightId', function(req, res){
+   var fid = req.params.fightId;
+   res.send(fid + aid);
+});
+
 app.get('/:fightId/:adminId', function(req, res){
    var fid = req.params.fightId;
    var aid = req.params.adminId;
