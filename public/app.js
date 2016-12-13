@@ -103,7 +103,7 @@
       a.text = data.title;
       cols.Name = ftd(data.name);
       cols.Titel = ftd(a.outerHTML);
-      cols.Views = ftd((data.views).toLocaleString());
+      cols.Views = ftd((data.views).toLocaleString(), 'right');
       for (var i in cols) {
          tr.appendChild(cols[i]);
       }
