@@ -35,3 +35,4 @@ var getStats = function(vids, callback) {
       }
    });
 };
+exports.getStats = getStats;
