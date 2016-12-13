@@ -33,18 +33,6 @@ app.get('/', function(req, res){
    });
 });
 
-app.get('/:fightId', function(req, res){
-   var fid = req.params.fightId;
-   res.send(fid);
-});
-
-app.get('/:fightId/:adminId', function(req, res){
-   var fid = req.params.fightId;
-   var aid = req.params.adminId;
-   res.send(fid + aid);
-});
-
-
 app.get('/data', function(req, res){
    var data = require(__dirname + '/data.js');
    data.get(connection, function(err, output){
@@ -66,5 +54,19 @@ app.get('/cron', function(req, res){
 app.get('/new', function(req, res) {
    res.send('New Race created');
 });
+
+app.get('/:fightId', function(req, res){
+   var fid = req.params.fightId;
+   res.send(fid);
+});
+
+app.get('/:fightId/:adminId', function(req, res){
+   var fid = req.params.fightId;
+   var aid = req.params.adminId;
+   res.send(fid + aid);
+});
+
+
+
 
 
