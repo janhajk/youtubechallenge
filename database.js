@@ -18,6 +18,43 @@ var getVideos = function(fid, connection, callback) {
 };
 exports.getVideos = getVideos;
 
+var getVideosforUpdate = function(connection, callback) {
+   var q = 'SELECT videos.yid FROM fights RIGHT JOIN vidstats ON (fights.fid = vidstats.fid) LEFT JOIN videos ON (vidstats.yid = videos.yid) WHERE (UNIX_TIMESTAMP()-fights.interval) > fights.lastupdate';
+   if (config.dev) console.log(q);
+   connection.query(q, function(err, rows) {
+      if(err) {
+         if (config.dev) console.log(err);
+         callback(err);
+      }
+      else {
+         if(config.dev) console.log(rows);
+         callback(null, rows);
+      }
+   });
+};
+exports.getVideosforUpdate = getVideosforUpdate;
+
+var getFightTitle = function(fid, connection, callback) {
+   if(!shortid.isValid(fid)) {
+      callback(fid + ' is not a valid ID');
+      if (config.dev) console.log(fid + ' is not a valid ID');
+      return;
+   }
+   var q = 'SELECT title FROM fights WHERE fid = "' + fid + '"';
+   if (config.dev) console.log(q);
+   connection.query(q, function(err, rows) {
+      if(err) {
+         if (config.dev) console.log(err);
+         callback(err);
+      }
+      else {
+         if(config.dev) console.log(rows);
+         callback(null, rows);
+      }
+   });
+};
+exports.getFightTitle = getFightTitle;
+
 var getFight = function(fid, connection, callback){
    if(!shortid.isValid(fid)) {
       callback(fid + ' is not a valid ID');

@@ -7,7 +7,7 @@ var async = require('async');
 var update = function(connection, callback) {
    var database = require(__dirname + '/database.js');
    var youtube = require(__dirname + '/youtube.js');
-   database.getVideos('all', connection, function(err, rows){
+   database.getVideosforUpdate(connection, function(err, rows){
       if (err) {
          if (config.dev) console.log(err);
          callback(err);
@@ -17,6 +17,7 @@ var update = function(connection, callback) {
          for (let i in rows) {
             vids.push(rows[i].yid);
          }
+         // TODO: Check if the view Count has changed; only update if it has to save space for videos that are not changing very often
          youtube.getStats(vids, function(err, stats) {
             database.updateStats(stats, connection, function(err){
                callback(err, 'Stats updated!');

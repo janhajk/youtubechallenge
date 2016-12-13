@@ -64,7 +64,15 @@ app.get('/new', function(req, res) {
 
 app.get('/:fightId', function(req, res){
    var fid = req.params.fightId;
-   res.render('fight', { title: fid, fightId:fid, adminId:null });
+   var database = require(__dirname + '/database.js');
+   database.getFightTitle(fid, connection, function(err, data){
+      if (err) {
+         res.send(err.message);
+      }
+      else {
+         res.render('fight', { title: fid, fightId:fid, adminId:null, data.fightTitle: });
+      }
+   });
 });
 
 app.get('/:fightId/:adminId', function(req, res){
