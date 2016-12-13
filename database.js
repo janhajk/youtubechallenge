@@ -2,12 +2,13 @@ var config = require(__dirname + '/config.js');
 
 
 var getVideos = function(rid, connection, callback) {
-   var query = 'SELECT * FROM videos';
+   var q = 'SELECT * FROM videos';
    if(rid !== 'all') {
       rid = parseInt(rid, 10);
-      query += ' WHERE rid = ' + rid;
+      q += ' WHERE rid = ' + rid;
    }
-   connection.query(query, function(err, rows) {
+   if (config.dev) console.log(q);
+   connection.query(q, function(err, rows) {
       if(err) {
          if (config.dev) console.log(err);
          callback(err);
