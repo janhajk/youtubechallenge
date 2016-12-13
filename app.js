@@ -36,8 +36,13 @@ app.get('/', function(req, res){
 
 app.get('/data', function(req, res){
    var data = require(__dirname + '/data.js');
-   data.get(connection, function(output){
-      res.send(output);
+   data.get(connection, function(err, output){
+      if (err) {
+         res.send(err.message);
+      }
+      else {
+         res.send(output);
+      }
    });
 });
 
