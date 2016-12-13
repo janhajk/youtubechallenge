@@ -128,8 +128,8 @@
          dataset.borderColor = c[0];
          dataset.backgroundColor = c[1];
          dataset.pointRadius = 0;
-         dataset.responsive = true;
-         dataset.maintainAspectRatio = true;
+         dataset.responsive = false;
+         dataset.maintainAspectRatio = false;
          data = [];
          for (var s in videos[i].stats) {
             data.push({x:new Date(videos[i].stats[s].timestamp*1000), y:videos[i].stats[s].viewCount});
