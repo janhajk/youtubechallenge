@@ -2,11 +2,7 @@ var config = require(__dirname + '/config.js');
 
 
 var getVideos = function(fid, connection, callback) {
-   var q = 'SELECT * FROM videos';
-   if(fid !== 'all') {
-      fid = parseInt(rid, 10);
-      q += ' WHERE rid = ' + fid;
-   }
+   var q = 'SELECT videos.yid,videos.title,videos.author FROM fights RIGHT JOIN vidstats ON (fights.fid = vidstats.fid) LEFT JOIN videos ON (vidstats.yid = videos.yid) WHERE fights.fid = "'+fid + '"';
    if (config.dev) console.log(q);
    connection.query(q, function(err, rows) {
       if(err) {
