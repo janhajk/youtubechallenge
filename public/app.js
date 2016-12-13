@@ -8,7 +8,7 @@
       //Filter einblenden
       var body = document.getElementsByTagName("BODY")[0];
       //body.style.maxWidth = '600px';
-      body.style.padding = '10px';
+      //body.style.padding = '10px';
       var request = new XMLHttpRequest();
       body.appendChild(eTitle(fightTitle));
       request.open('GET', '/data/' + fightid, true);
@@ -34,7 +34,7 @@
             let chart = document.createElement('canvas');
             d.width = '100%';
             d.position = 'relative';
-            d.style.height= '50vh';
+            //d.style.height= '50vh';
             d.appendChild(chart)
             body.appendChild(d);
             makeChart(chart,videos);
