@@ -1,11 +1,11 @@
 var config = require(__dirname + '/config.js');
 
 
-var getVideos = function(rid, connection, callback) {
+var getVideos = function(fid, connection, callback) {
    var q = 'SELECT * FROM videos';
-   if(rid !== 'all') {
-      rid = parseInt(rid, 10);
-      q += ' WHERE rid = ' + rid;
+   if(fid !== 'all') {
+      fid = parseInt(rid, 10);
+      q += ' WHERE rid = ' + fid;
    }
    if (config.dev) console.log(q);
    connection.query(q, function(err, rows) {
@@ -20,6 +20,27 @@ var getVideos = function(rid, connection, callback) {
    });
 };
 exports.getVideos = getVideos;
+
+var getFight = function(fid, connection, callback){
+   if(!shortid.isValid(fid)) {
+      callback(fid + ' is not a valid ID');
+      if (config.dev) console.log(fid + ' is not a valid ID');
+      return;
+   }
+   var q = 'SELECT * FROM fights WHERE fid = "' + fid + '"';
+   if (config.dev) console.log(q);
+   connection.query(q, function(err, rows) {
+      if(err) {
+         if (config.dev) console.log(err);
+         callback(err);
+      }
+      else {
+         if(config.dev) console.log(rows);
+         callback(null, rows);
+      }
+   });
+};
+exports.getFight = getFight;
 
 
 var updateStats = function(stats, connection, callback) {

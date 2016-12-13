@@ -10,7 +10,7 @@
       body.style.maxWidth = '600px';
       body.style.padding = '10px';
       var request = new XMLHttpRequest();
-      request.open('GET', '/data', true);
+      request.open('GET', '/data/' + fightid, true);
       request.onload = function() {
          if(request.status >= 200 && request.status < 400) {
             var data = JSON.parse(request.responseText);

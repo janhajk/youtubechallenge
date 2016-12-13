@@ -1,3 +1,7 @@
+// Branches: https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches
+// Merge Master http://stackoverflow.com/questions/5601931/best-and-safest-way-to-merge-a-git-branch-into-master#5602109
+
+
 var express = require('express');
 var update = require(__dirname + '/update.js');
 var compression    = require('compression');
@@ -34,7 +38,8 @@ app.get('/', function(req, res){
    });
 });
 
-app.get('/data', function(req, res){
+app.get('/data/:fightId', function(req, res){
+   var fid = req.params.fightId;
    var data = require(__dirname + '/data.js');
    data.get(connection, function(err, output){
       if (err) {
@@ -56,6 +61,7 @@ app.get('/new', function(req, res) {
    res.send('New Race created');
 });
 
+
 app.get('/:fightId', function(req, res){
    var fid = req.params.fightId;
    res.render('fight', { title: fid, fightId:fid, adminId:null });
@@ -66,6 +72,11 @@ app.get('/:fightId/:adminId', function(req, res){
    var aid = req.params.adminId;
    res.render('fight', { title: fid, fightId:fid, adminId:aid });
 });
+
+
+var shortid = require('shortid');
+
+console.log(shortid.generate());
 
 
 
