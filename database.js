@@ -20,7 +20,7 @@ var updateStats = function(stats, connection, callback) {
    if (config.dev) console.log(stats);
    var insert = [];
    for (let i in stats) {
-      insert.push('('+stats[i].statistics.id+','+stats[i].statistics.ViewCount+','+Math.floor(Date.now() / 1000)+')');
+      insert.push('('+stats[i].id+','+stats[i].statistics.viewCount+','+Math.floor(Date.now() / 1000)+')');
    }
    var query = 'INSERT INTO stats (yid, viewCount, timestamp) VALUES ' + insert.join(',');
    if (config.dev) console.log(query);
