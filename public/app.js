@@ -32,7 +32,8 @@
             body.appendChild(btable(current));
             var chart = document.createElement('canvas');
             chart.width = '100%';
-            chart.height = '200';
+            //chart.height = '200';
+            chart.style.height= 'auto !important';
             body.appendChild(chart);
             makeChart(chart,videos);
          } else {
