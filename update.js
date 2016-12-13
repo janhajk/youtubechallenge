@@ -43,3 +43,26 @@ var update = function(mysqlconnection, cb){
    });
 };
 exports.update = update;
+
+
+var update2 = function(connection, callback) {
+   var database = require(__dirname + '/database.js');
+   var youtube = require(__dirname + '/youtube.js');
+   database.getVideos(connection, function(err, rows){
+      if (err) {
+         if (config.dev) console.log(err);
+         callback(err);
+      }
+      else {
+         let vids;
+         for (let i in rows) {
+            vids.push(rows[i].yid);
+         }
+         youtube.getStats(vids, function(err, stats) {
+            updateStats(stats, connection, function(err){
+               callback(err, 'Stats updated!');
+            });
+         });
+      }
+   });
+};

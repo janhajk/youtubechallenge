@@ -47,4 +47,15 @@ app.get('/cron', function(req, res){
    });
 });
 
+app.get('/cron2', function(req, res){
+   update.update2(connection, function(err, msg){
+      if (err) {
+         res.send(err.message);
+      }
+      else {
+         res.send(msg);
+      }
+   });
+});
+
 

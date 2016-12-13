@@ -16,3 +16,5 @@ exports.videos = [{
       {title: '',id: ''}
    ]},
 ];
+
+exports.dev = false;
