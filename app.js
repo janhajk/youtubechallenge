@@ -33,6 +33,12 @@ app.get('/', function(req, res){
    });
 });
 
+app.get('/:fightId/:adminId', function(req, res){
+   var fid = req.params.fightId;
+   var aid = req.params.adminId;
+   res.send(fid + aid);
+});
+
 
 app.get('/data', function(req, res){
    var data = require(__dirname + '/data.js');
