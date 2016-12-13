@@ -1,7 +1,7 @@
 {
     "name": "youtube-challenge",
     "description": "a youtube views-count tracker",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "private": true,
     "scripts": {
         "start": "node app.js"
