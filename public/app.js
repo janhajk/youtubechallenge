@@ -32,30 +32,11 @@
             body.appendChild(btable(current));
             let d = document.createElement('div');
             var chart = document.createElement('canvas');
-            chart.style.width = '100% important!';
-            chart.style.height = '500px';
-            //d.style.height= '50vh';
+            d.style.width = '100% !important';
+            d.style.height = '500px !important';
             d.appendChild(chart)
-            body.appendChild(chart);
+            body.appendChild(d);
             makeChart(chart,videos);
-
-            function resizeChart() {
-               var canvas = chart;
-
-               //set new sizes
-               var new_canvasWidth = Math.max((canvas.parentNode.clientWidth), 800);
-               var new_canvasHeight = 500;
-
-               //only redraw if the size  has changed
-               if ((new_canvasWidth != canvas.style.width) || (new_canvasHeight != canvas.style.height)) {
-                  canvas.style.width = new_canvasWidth + 'px';
-                  canvas.style.height = new_canvasHeight + 'px';
-                  makeChart(chart,videos);
-               }
-            }
-            //resizeTracker, clearTimeout, and setTimeout are used to only fire the resize event after the user has finished resizing; rather than firing lots of times unnecessarily while resizing.
-            var resizeTracker;
-            window.addEventListener('resize', (function(){clearTimeout(resizeTracker);resizeTracker = setTimeout(resizeChart, 100);}), false);
          } else {
             // Error
          }
