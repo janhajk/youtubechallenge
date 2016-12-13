@@ -102,22 +102,15 @@
    };
 
    var makeChart = function(ctx, videos) {
-      var colors = [
-         ["rgba(252,92,53,1)","rgba(252,92,53,0.4)"],
-         ["rgba(177,244,90,1)","rgba(177,244,90,0.4)"],
-         ["rgba(90,244,226,1)","rgba(90,244,226,0.4)"],
-         ["rgba(90,98,244,1)","rgba(90,98,244,0.4)"],
-         ["rgba(239,90,244,1)","rgba(239,90,244,0.4)"],
-         ["rgba(75,192,192,1)","rgba(75,192,192,0.4)"]
-      ];
       var datasets = [];
       var dataset = {};
       var data = [];
       for (var i in videos) {
+         let c = hashColor(i);
          dataset = {};
          dataset.label = videos[i].title;
-         dataset.borderColor = colors[i][0];
-         dataset.backgroundColor = colors[i][1];
+         dataset.borderColor = c[0];
+         dataset.backgroundColor = c[1];
          dataset.pointRadius = 0;
          data = [];
          for (var s in videos[i].stats) {
@@ -178,4 +171,23 @@
       return sortable;
    }
 
+   var hashColor = function(string){
+      var h = hash(string);
+      h = Math.abs(h);
+      h = h.toString();
+      h = [h.substr(0,2), h.substr(2,2), h.substr(4,2)];
+      for (let i in h) {
+         h[i] = Math.round(parseInt(h[i],10)/100*256);
+      }
+      return ['rgba('+h.join(',')+',1)','rgba('+h.join(',')+',0.4)']
+   };
+
+   var hash = function(string) {
+      let hash = 0;
+      string = string.toString();
+      for(let i = 0; i < string.length; i++) {
+         hash = (((hash << 5) - hash) + string.charCodeAt(i)) & 0xFFFFFFFF;
+      }
+      return hash;
+   };
 })();
