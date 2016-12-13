@@ -31,13 +31,32 @@
             //console.log(videos);
             body.appendChild(btable(current));
             let d = document.createElement('div');
-            let chart = document.createElement('canvas');
-            d.width = '100%';
+            var chart = document.createElement('canvas');
+            d.style.width = '100% important!';
+            d.style.height = '300px';
             d.position = 'relative';
             //d.style.height= '50vh';
             d.appendChild(chart)
             body.appendChild(d);
             makeChart(chart,videos);
+
+            function resizeChart() {
+               var canvas = chart;
+
+               //set new sizes                 
+               var new_canvasWidth = Math.max((canvas.parentNode.clientWidth), 800);
+               var new_canvasHeight = 300;
+
+               //only redraw if the size  has changed
+               if ((new_canvasWidth != canvas.width) || (new_canvasHeight != canvas.height)) {
+                  canvas.width = new_canvasWidth;
+                  canvas.height = new_canvasHeight;
+                  makeChart(chart,videos);
+               }
+            }
+            //resizeTracker, clearTimeout, and setTimeout are used to only fire the resize event after the user has finished resizing; rather than firing lots of times unnecessarily while resizing.
+            var resizeTracker;
+            window.addEventListener('resize', (function(){clearTimeout(resizeTracker);resizeTracker = setTimeout(resizeChart, 100);}), false);
          } else {
             // Error
          }
@@ -47,6 +66,7 @@
       };
       request.send();
    });
+
 
    var eTitle = function(title) {
       let d = document.createElement('div');
