@@ -35,7 +35,7 @@ app.get('/', function(req, res){
 
 app.get('/:fightId', function(req, res){
    var fid = req.params.fightId;
-   res.send(fid + aid);
+   res.send(fid);
 });
 
 app.get('/:fightId/:adminId', function(req, res){
